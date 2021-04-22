@@ -1,0 +1,38 @@
+// GET the data with ajax
+const url = 'http://swapi.dev/api/people/'
+
+// 1. jquery ajax method 
+
+$.ajax({
+    type: 'GET',
+    url: url,
+    success: function(response){
+        console.log('jquery ajax', response)
+    },
+    error: function(error){
+        console.log(error)
+    }
+})
+
+// 2. XMLHttpRequest
+
+const req = new XMLHttpRequest()
+
+req.addEventListener('readystatechange', () => {
+    if(req.readyState === 4){
+        console.log('xhttp', JSON.parse(req.responseText))
+    }
+})
+
+req.open('GET', url)
+req.send()
+
+// 3. fetch method
+
+console.log(fetch(url))
+fetch(url)  // Returns a promise
+.then(resp => resp.json()).then(data => console.log('fetch', data))
+.catch(err => console.log(err))
+
+
+// Other popular methods : axios library, async await + fetch

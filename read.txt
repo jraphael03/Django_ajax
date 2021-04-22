@@ -1,0 +1,41 @@
+[ Create venv environment ]
+
+mkdir Django_JS_CRUD
+cd Django_JS_CRUD
+pip3 install virtualenv
+python3 -m venv ( venv name )
+cd dj_ajax
+source bin/activate
+pip install django
+
+[ Start Project ]
+
+django-admin startproject ( project name )
+cd posts_proj
+
+(go up a level and change the name of the main project folder, so we don't have two folders with the same name)
+cd ..
+mv posts_proj src
+
+go into src folder
+
+[ Creating Database ]
+python manage.py migrate
+python manage.py createsuperuser
+
+
+[ Create applications ]
+python manage.py startapp posts
+python manage.py startapp profiles
+
+pip install pillow ( Works with images )
+pip install django-crispy-forms
+
+go back into dj_ajax folder
+pip freeze > requirements.txt
+
+
+
+
+
+
