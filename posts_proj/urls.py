@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('posts.urls', namespace="posts")),     # namespace should equal app_name
+
 ]
 
 # Acess static files and media files from settings
